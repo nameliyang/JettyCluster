@@ -1,0 +1,156 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.ly.sessionA</groupId>
+	<artifactId>SessionA</artifactId>
+	<packaging>war</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>SessionA Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+	<properties>
+		<!-- <jetty-version>9.0.3.v20130506</jetty-version> -->
+		<!-- <jetty-version>7.6.17.v20150415</jetty-version> -->
+		
+		<jetty-version>8.1.8.v20121106</jetty-version>
+		<slf4j.version>1.7.7</slf4j.version>
+		<slf4j-log4j.version>1.7.12</slf4j-log4j.version>
+		<log4j.version>1.2.17</log4j.version> 
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-server</artifactId>
+			<version>${jetty-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-webapp</artifactId>
+			<version>${jetty-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-annotations</artifactId>
+			<version>${jetty-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-nosql</artifactId>
+			<version>${jetty-version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${slf4j-log4j.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.geishatokyo.jetty</groupId>
+			<artifactId>jetty-nosql-memcached</artifactId>
+		    <version>0.3.2-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.geishatokyo.jetty</groupId>
+			<artifactId>jetty-nosql-kvs</artifactId>
+		    <version>0.3.2-SNAPSHOT</version>
+		</dependency>
+			
+		<!-- <dependency>
+			<groupId>com.geishatokyo.jetty</groupId>
+			<artifactId>jetty-nosql-memcached</artifactId>
+			<version>0.4.0</version>
+			<version>0.5.0</version>
+			<scope>provided</scope>
+			<exclusions>
+				<exclusion>
+					<artifactId>jetty-nosql</artifactId>
+					<groupId>org.eclipse.jetty</groupId>
+				</exclusion>
+				<exclusion>
+					<groupId>spy</groupId>
+					<artifactId>spymemcached</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.googlecode.xmemcached</groupId>
+					<artifactId>xmemcached</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.esotericsoftware.kryo</groupId>
+					<artifactId>kryo</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.thoughtworks.xstream</groupId>
+					<artifactId>xstream</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+ -->
+ 	 	<!-- 
+		<dependency>
+			<groupId>net.spy</groupId>
+			<artifactId>spymemcached</artifactId>
+			<version>2.9.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.esotericsoftware.kryo</groupId>
+			<artifactId>kryo</artifactId>
+			<version>2.21</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.googlecode.xmemcached</groupId>
+			<artifactId>xmemcached</artifactId>
+			<version>1.4.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.thoughtworks.xstream</groupId>
+			<artifactId>xstream</artifactId>
+			<version>1.4.4</version>
+		</dependency> 
+		-->
+	</dependencies>
+
+	<build>
+		<finalName>SessionA</finalName>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.0</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

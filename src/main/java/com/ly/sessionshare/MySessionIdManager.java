@@ -1,15 +1,26 @@
 package com.ly.sessionshare;
 
+import java.util.HashSet;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.eclipse.jetty.server.session.AbstractSessionIdManager;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class MySessionIdManager extends AbstractSessionIdManager {
 
+	private static final Logger logger = LoggerFactory.getLogger(MySessionIdManager.class);
+	
+	HashSet<String> sessionIds = new HashSet<String>();
+	
 	@Override
 	public boolean idInUse(String id) {
-		return false;
+		logger.info("id={} id in use ",id);
+		synchronized (this) {
+			return sessionIds.contains(id);
+		}
 	}
 
 	@Override
@@ -17,16 +28,25 @@ public class MySessionIdManager extends AbstractSessionIdManager {
 		if(session == null){
 			return ;
 		}
+		logger.info("add session id = {}",session.getId());
+		synchronized (this) {
+			sessionIds.add(session.getId());
+		}
 	}
 
 	@Override
 	public void removeSession(HttpSession session) {
-		
+		logger.info("add session id = {}",session==null?null:session.getId());
+		if(session == null){
+			return;
+		}
+		synchronized (this) {
+			sessionIds.remove(session);
+		}
 	}
 
 	@Override
 	public void invalidateAll(String id) {
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -37,8 +57,7 @@ public class MySessionIdManager extends AbstractSessionIdManager {
 
 	@Override
 	public String getNodeId(String clusterId, HttpServletRequest request) {
-		// TODO Auto-generated method stub
-		return null;
+		return clusterId;
 	}
 	
 }

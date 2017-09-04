@@ -25,6 +25,8 @@ public class MyServlet extends HttpServlet{
 		}
 		HttpSession session = req.getSession(false);
 		resp.getWriter().write("helloA "+"reqCookie:"+cookieSessionID+",session="+session);
+		req.getSession(false);
+		req.getSession();
 		req.getSession();
 	}
 	

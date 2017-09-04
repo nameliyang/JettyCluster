@@ -6,10 +6,9 @@ import org.eclipse.jetty.server.session.AbstractSession;
 import org.eclipse.jetty.server.session.AbstractSessionManager;
 
 public class MySessionManager  extends AbstractSessionManager{
-
+	
 	@Override
 	protected void addSession(AbstractSession session) {
-		
 	}
 
 	@Override
@@ -24,8 +23,9 @@ public class MySessionManager  extends AbstractSessionManager{
 
 	@Override
 	protected AbstractSession newSession(HttpServletRequest request) {
-		return null;
+		return new MySession(request);
 	}
+	
 
 	@Override
 	protected boolean removeSession(String idInCluster) {

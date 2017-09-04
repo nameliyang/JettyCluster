@@ -1,4 +1,4 @@
-package com.ly.test;
+package com.ly.sessionshare;
 
 import javax.servlet.http.HttpServletRequest;
 

@@ -1,4 +1,4 @@
-package com.ly.test;
+package com.ly.sessionshare;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -17,8 +17,6 @@ public class MySessionIdManager extends AbstractSessionIdManager {
 		if(session == null){
 			return ;
 		}
-		
-		
 	}
 
 	@Override
@@ -34,7 +32,6 @@ public class MySessionIdManager extends AbstractSessionIdManager {
 
 	@Override
 	public String getClusterId(String nodeId) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

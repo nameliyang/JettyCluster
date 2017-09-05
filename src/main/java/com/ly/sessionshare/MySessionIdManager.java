@@ -22,6 +22,14 @@ public class MySessionIdManager extends AbstractSessionIdManager {
 			return sessionIds.contains(id);
 		}
 	}
+	
+	@Override
+	public String newSessionId(HttpServletRequest request, long created) {
+		String sessionId = null;
+		sessionId = super.newSessionId(request, created);
+		logger.info("new sessionId = {}",sessionId);
+		return sessionId;
+	}
 
 	@Override
 	public void addSession(HttpSession session) {

@@ -35,8 +35,7 @@ public class MySessionManager  extends AbstractSessionManager{
 	
 	class MySession extends AbstractSession{
 
-		public MySession(
-				HttpServletRequest request) {
+		public MySession(HttpServletRequest request) {
 			super(MySessionManager.this, request);
 		}
 		

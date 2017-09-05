@@ -52,7 +52,7 @@ public class MySessionIdManager extends AbstractSessionIdManager {
 
 	@Override
 	public String getClusterId(String nodeId) {
-		return null;
+		return nodeId;
 	}
 
 	@Override

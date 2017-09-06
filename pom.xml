@@ -11,7 +11,7 @@
 		<!-- <jetty-version>9.0.3.v20130506</jetty-version> -->
 		<!-- <jetty-version>7.6.17.v20150415</jetty-version> -->
 		
-		<jetty-version>8.1.8.v20121106</jetty-version>
+		<jetty-version>9.3.11.v20160721</jetty-version>
 		<slf4j.version>1.7.7</slf4j.version>
 		<slf4j-log4j.version>1.7.12</slf4j-log4j.version>
 		<log4j.version>1.2.17</log4j.version>
@@ -80,14 +80,9 @@
 		</dependency>
 		
 		<dependency>
-			<groupId>com.geishatokyo.jetty</groupId>
-			<artifactId>jetty-nosql-memcached</artifactId>
-		    <version>0.3.2-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>com.geishatokyo.jetty</groupId>
-			<artifactId>jetty-nosql-kvs</artifactId>
-		    <version>0.3.2-SNAPSHOT</version>
+		    <groupId>com.geishatokyo.jetty</groupId>
+		    <artifactId>jetty-nosql-memcached</artifactId>
+		    <version>0.5.0</version>
 		</dependency>
 		
 		<dependency>

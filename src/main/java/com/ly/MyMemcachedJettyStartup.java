@@ -2,7 +2,6 @@ package com.ly;
 import org.eclipse.jetty.nosql.memcached.MemcachedSessionIdManager;
 import org.eclipse.jetty.nosql.memcached.MemcachedSessionManager;
 import org.eclipse.jetty.server.Server;
-import org.eclipse.jetty.server.nio.SelectChannelConnector;
 import org.eclipse.jetty.server.session.SessionHandler;
 import org.eclipse.jetty.util.log.LoggerLog;
 import org.eclipse.jetty.util.log.Slf4jLog;
@@ -53,14 +52,7 @@ public class MyMemcachedJettyStartup {
 	}
 
 	public static Server getServer(int port) {
-		Server server = new Server();
-		SelectChannelConnector connector = new SelectChannelConnector();
-		connector.setPort(port);
-		connector.setMaxIdleTime(300000);
-		connector.setStatsOn(false);
-		connector.setLowResourcesConnections(5000);
-		connector.setLowResourcesMaxIdleTime(5000);
-		server.addConnector(connector);
+		Server server = new Server(2334);
 		return server;
 	}
 }

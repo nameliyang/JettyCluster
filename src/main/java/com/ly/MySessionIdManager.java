@@ -8,39 +8,32 @@ import org.eclipse.jetty.server.session.AbstractSessionIdManager;
 public class MySessionIdManager extends AbstractSessionIdManager{
 
 	@Override
-	public boolean idInUse(String id) {
+	public void addSession(HttpSession arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean idInUse(String arg0) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public void addSession(HttpSession session) {
+	public void invalidateAll(String arg0) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void removeSession(HttpSession session) {
+	public void removeSession(HttpSession arg0) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void invalidateAll(String id) {
-		// TODO Auto-generated method stub
+	public void renewSessionId(String arg0, String arg1, HttpServletRequest arg2) {
 		
-	}
-
-	@Override
-	public String getClusterId(String nodeId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String getNodeId(String clusterId, HttpServletRequest request) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

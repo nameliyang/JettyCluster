@@ -1,17 +1,28 @@
 package com.ly.jdbc;
 
+import org.eclipse.jetty.nosql.kvs.KeyValueStoreSessionManager;
+import org.eclipse.jetty.nosql.kvs.session.xstream.XStreamSession;
+import org.eclipse.jetty.nosql.kvs.session.xstream.XStreamSessionFactory;
 import org.eclipse.jetty.server.Server;
-import org.eclipse.jetty.server.session.JDBCSessionIdManager;
-import org.eclipse.jetty.server.session.JDBCSessionManager;
 import org.eclipse.jetty.util.log.Slf4jLog;
 import org.eclipse.jetty.webapp.WebAppContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.thoughtworks.xstream.mapper.DefaultMapper;
+
 public class JdbcJetty9Cluster {
 	private static final Logger logger = LoggerFactory.getLogger(JdbcJetty9Cluster.class);
 	
 	public static void main(String[] args) throws Exception {
+		org.eclipse.jetty.nosql.kvs.session.xstream.XStreamSession ss;
+		XStreamSessionFactory tt;
+		XStreamSession sess;
+		DefaultMapper bbb;
+		
+		org.eclipse.jetty.nosql.kvs.session.xstream.XStreamSession ssss;
+		
+		
 		Slf4jLog slf4jLog = new org.eclipse.jetty.util.log.Slf4jLog();
 		org.eclipse.jetty.util.log.Log.setLog(slf4jLog);
 		
@@ -21,6 +32,8 @@ public class JdbcJetty9Cluster {
 		Server server = getServer(2334);
 			
 		 
+		KeyValueStoreSessionManager magne;
+		
 		
 		 WebAppContext context = new WebAppContext(webApp, "/");
 		

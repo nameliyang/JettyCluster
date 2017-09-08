@@ -5,6 +5,8 @@ import java.util.concurrent.ExecutionException;
 
 public class Test {
 	public static void main(String[] args) throws IOException, InterruptedException, ExecutionException {
+		org.eclipse.jetty.webapp.WebAppClassLoader tl;
+		
 		
 		byte[] bytes = new byte[]{49, 48, 53, 104, 98, 108, 114, 54, 55, 53, 100, 57, 104, 56, 53, 52, 56, 51, 106, 55, 48, 112, 118, 121, 55};
 		System.out.println(new String(bytes));

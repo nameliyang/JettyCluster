@@ -14,6 +14,8 @@ public class MyMemcachedJettyStartup {
 	private static final Logger logger = LoggerFactory.getLogger(MyMemcachedJettyStartup.class);
 	
 	public static void main(String[] args) throws Exception {
+		org.eclipse.jetty.server.session.AbstractSession session ;
+		
 		org.eclipse.jetty.util.log.StdErrLog t;
 		LoggerLog ttl;
 		Slf4jLog slf4jLog = new org.eclipse.jetty.util.log.Slf4jLog();

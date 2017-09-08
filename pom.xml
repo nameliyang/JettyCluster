@@ -7,6 +7,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>SessionA Maven Webapp</name>
 	<url>http://maven.apache.org</url>
+	
 	<properties>
 		<!-- <jetty-version>9.0.3.v20130506</jetty-version> -->
 		<!-- <jetty-version>7.6.17.v20150415</jetty-version> -->
@@ -16,7 +17,7 @@
 		<log4j.version>1.2.17</log4j.version>
 		<spring.version>4.0.2.RELEASE</spring.version> 
 	</properties>
-
+	
 	<dependencies>
 		<dependency>
 			<groupId>com.ovea</groupId>
@@ -52,24 +53,36 @@
 			<artifactId>jetty-annotations</artifactId>
 			<version>${jetty-version}</version>
 		</dependency>
-
+		
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-nosql</artifactId>
 			<version>${jetty-version}</version>
-			<scope>provided</scope>
 		</dependency>
-
+				
 		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>${slf4j.version}</version>
-		</dependency>
+		    <groupId>com.geishatokyo.jetty</groupId>
+		    <artifactId>jetty-nosql-memcached</artifactId>
+		    <version>0.6.0-SNAPSHOT</version>
+		    <exclusions>
+		    	<exclusion>
+		    		<groupId>org.eclipse.jetty</groupId>
+		    		<artifactId>jetty-nosql</artifactId>
+		    	</exclusion>
+		    </exclusions>
+		 </dependency>  
+
 
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>${slf4j-log4j.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-api</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<dependency>
@@ -78,11 +91,7 @@
 			<version>1.2.17</version>
 		</dependency>
 		
-		<dependency>
-		    <groupId>com.geishatokyo.jetty</groupId>
-		    <artifactId>jetty-nosql-memcached</artifactId>
-		    <version>0.5.0</version>
-		</dependency>
+		 
 		
 		<dependency>
 		    <groupId>mysql</groupId>
@@ -94,13 +103,25 @@
 	        <groupId>org.apache.curator</groupId>
 	        <artifactId>curator-recipes</artifactId>
 	        <version>2.10.0</version>
-	    </dependency>
+	        <exclusions>
+	        	<exclusion>
+	        		<groupId>org.slf4j</groupId>
+	        		<artifactId>slf4j-api</artifactId>
+	        	</exclusion>
+	        </exclusions>
+		</dependency>
 		
 		 <dependency>
 		    <groupId>org.quartz-scheduler</groupId>
 		    <artifactId>quartz</artifactId>
 		    <version>2.2.1</version>
-		  </dependency>
+		    <exclusions>
+		    	<exclusion>
+		    		<groupId>org.slf4j</groupId>
+		    		<artifactId>slf4j-api</artifactId>
+		    	</exclusion>
+		    </exclusions>
+		 </dependency>
 		  <dependency>
 		    <groupId>org.quartz-scheduler</groupId>
 		    <artifactId>quartz-jobs</artifactId>
@@ -167,55 +188,7 @@
             <artifactId>jackson-mapper-asl</artifactId>
             <version>1.9.0</version>
         </dependency>
-		<!-- <dependency>
-			<groupId>com.geishatokyo.jetty</groupId>
-			<artifactId>jetty-nosql-memcached</artifactId>
-			<version>0.4.0</version>
-			<version>0.5.0</version>
-			<scxclusion>
-				<exclusion>
-					<groupId>spy</groupId>
-					<artifactId>spymemcached</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.googlecode.xmemcached</groupId>
-					<artifactId>xmemcached</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.esotericsoftware.kryo</groupId>
-					<artifactId>kryo</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.thoughtworks.xstream</groupId>
-					<artifactId>xstream</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
- -->
- 	 	<!-- 
-		<dependency>
-			<groupId>net.spy</groupId>
-			<artifactId>spymemcached</artifactId>
-			<version>2.9.1</version>
-		</dependency>
-
-		<dependency>
-			<groupId>com.esotericsoftware.kryo</groupId>
-			<artifactId>kryo</artifactId>
-			<version>2.21</version>
-		</dependency>
-
-		<dependency>
-			<groupId>com.googlecode.xmemcached</groupId>
-			<artifactId>xmemcached</artifactId>
-			<version>1.4.1</version>
-		</dependency>
-		<dependency>
-			<groupId>com.thoughtworks.xstream</groupId>
-			<artifactId>xstream</artifactId>
-			<version>1.4.4</version>
-		</dependency> 
-		-->
+        
 	</dependencies>
 
 	<build>

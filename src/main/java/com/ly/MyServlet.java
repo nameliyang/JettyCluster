@@ -18,11 +18,14 @@ public class MyServlet extends HttpServlet{
 		
 		Cookie[] cookies = req.getCookies();
 		String cookieSessionID = null;
-		for(Cookie cookie:cookies){
-			if("JSESSIONID".equals(cookie.getName())){
-				cookieSessionID = cookie.getValue();
+		if(cookies!=null){
+			for(Cookie cookie:cookies){
+				if("JSESSIONID".equals(cookie.getName())){
+					cookieSessionID = cookie.getValue();
+				}
 			}
 		}
+		
 		HttpSession session = req.getSession(false);
 		resp.getWriter().write("helloA "+"reqCookie:"+cookieSessionID+",session="+session);
 		req.getSession(false);

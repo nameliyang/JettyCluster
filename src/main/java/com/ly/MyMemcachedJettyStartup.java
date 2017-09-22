@@ -14,26 +14,24 @@ public class MyMemcachedJettyStartup {
 	private static final Logger logger = LoggerFactory.getLogger(MyMemcachedJettyStartup.class);
 	
 	public static void main(String[] args) throws Exception {
-		org.eclipse.jetty.server.session.AbstractSession session ;
 		
-		org.eclipse.jetty.util.log.StdErrLog t;
-		LoggerLog ttl;
 		Slf4jLog slf4jLog = new org.eclipse.jetty.util.log.Slf4jLog();
 		org.eclipse.jetty.util.log.Log.setLog(slf4jLog);
 		
 		String userDir = System.getProperty("user.dir");
 		String webApp = userDir+"/src/main/webapp";
 		logger.info("webapp ={}",webApp);
-		Server server = getServer(2334);
+		Server server = getServer(2332);
 		
 		MemcachedSessionIdManager memcachedSessionIdManager = new MemcachedSessionIdManager(server);
-		memcachedSessionIdManager.setServerString("127.0.0.1:11211");
+		memcachedSessionIdManager.setServerString("192.168.199.90:11211");
 		memcachedSessionIdManager.setKeyPrefix("session:");
-		server.setSessionIdManager(memcachedSessionIdManager);
+		memcachedSessionIdManager.setWorkerName("serverB");
+		server.setSessionIdManager(memcachedSessionIdManager); 
 
 		WebAppContext context = new WebAppContext(webApp, "/");
 		MemcachedSessionManager manager = new MemcachedSessionManager();
-
+		
 		manager.setSessionIdManager(memcachedSessionIdManager);
 		context.setSessionHandler(new SessionHandler(manager));
 		
@@ -54,7 +52,7 @@ public class MyMemcachedJettyStartup {
 	}
 
 	public static Server getServer(int port) {
-		Server server = new Server(2334);
+		Server server = new Server(port);
 		return server;
 	}
 }

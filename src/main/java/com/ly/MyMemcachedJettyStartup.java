@@ -21,12 +21,12 @@ public class MyMemcachedJettyStartup {
 		String userDir = System.getProperty("user.dir");
 		String webApp = userDir+"/src/main/webapp";
 		logger.info("webapp ={}",webApp);
-		Server server = getServer(2332);
+		Server server = getServer(2331);
 		
 		MemcachedSessionIdManager memcachedSessionIdManager = new MemcachedSessionIdManager(server);
 		memcachedSessionIdManager.setServerString("192.168.199.90:11211");
 		memcachedSessionIdManager.setKeyPrefix("session:");
-		memcachedSessionIdManager.setWorkerName("serverB");
+		memcachedSessionIdManager.setWorkerName("serverA");
 		server.setSessionIdManager(memcachedSessionIdManager); 
 
 		WebAppContext context = new WebAppContext(webApp, "/");
